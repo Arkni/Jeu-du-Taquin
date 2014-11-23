@@ -24,6 +24,10 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
+/**
+ *
+ * @author brahim
+ */
 public class Forme extends JFrame {
 
     private static final long serialVersionUID = 1L;
@@ -68,7 +72,9 @@ public class Forme extends JFrame {
     //la music
     Musique musique = null;
 
-    //le constructeur
+    /**
+     * Default constructor
+     */
     public Forme() {
         this.setTitle("Jeu du Taquin");
         this.setSize((getNbCarreaux() + 2) * getTaille() + 4, (getNbCarreaux() + 2) * getTaille() + 50);
@@ -151,7 +157,7 @@ public class Forme extends JFrame {
         mOuvrir = new JMenuItem("Importer une image", KeyEvent.VK_I);//raccourci alt+I
         mLancer = new JMenuItem("Nouvelle partie", KeyEvent.VK_N);//raccourci alt+N
         mRejouer = new JMenuItem("Rejouer", KeyEvent.VK_R);//raccourci alt+R
-        mLancerPauser = new JMenuItem("Lancer/Pauser la musique");
+        mLancerPauser = new JMenuItem("Pauser la musique");// titre par défaut
 
         mApropos = new JMenuItem("A propos de nous", KeyEvent.VK_A);//raccourci alt+A
         mHowToUse = new JMenuItem("Comment jouer ?", KeyEvent.VK_C);//raccourci alt+C
@@ -374,7 +380,7 @@ public class Forme extends JFrame {
             setArreter(false);
             ArrayList<Carreaux> arr = new ArrayList<Carreaux>();
             for (Carreaux[] c : carreaux) {
-                for(Carreaux b : c) {
+                for (Carreaux b : c) {
                     arr.add(b);
                 }
             }
@@ -382,7 +388,7 @@ public class Forme extends JFrame {
             int indice;
             for (int i = getNbCarreaux() * getNbCarreaux(); i > 0; i--) {
                 indice = ran.nextInt(i);
-                arr.get(indice).setNvEmplacemet(i - 1);
+                arr.get(indice).setNvEmplacement(i - 1);
                 arr.remove(indice);
             }
             arr.clear();
